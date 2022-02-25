@@ -7,21 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myAngular';
-  inputValue: string | number = "";
+  toggle: boolean = false;
 
   constructor() {
 
   }
 
-  onClick($event: MouseEvent) {
-    console.log("click")
-  }
-
-  change($event: any) {
-    this.inputValue = (<HTMLInputElement> $event.target).value;
-  }
-
-  onBluer(value: string) {
-    this.inputValue = value;
-  }
 }

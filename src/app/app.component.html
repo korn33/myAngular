@@ -1,9 +1,8 @@
-<input type="text"
-       #myInput
-       (keyup.enter)="change($event)"
-       (blur)="onBluer(myInput.value)"
->
-<p>{{inputValue}}</p>
-<button (click)="onClick($event)">click me!</button>
-<br>
+<button (click) = "toggle = !toggle">toggle</button>
+
+<p *ngIf="toggle; else blueText" class="red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, vitae.</p>
+
+<ng-template #blueText>
+  <p  class="blue">Lorem ipsum dolor siterat, vitae.</p>
+</ng-template>
 
