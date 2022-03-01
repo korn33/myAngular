@@ -9,6 +9,7 @@ import {IPost} from "../../interfaces/formPosts/IPost";
 export class PostFormComponent implements OnInit {
     title = ""
     text = ""
+    id = 0
 
     @Output() onAdd: EventEmitter<IPost> = new EventEmitter<IPost>()
     @ViewChild("inputTitle") inputTitleRef!: ElementRef
@@ -23,10 +24,12 @@ export class PostFormComponent implements OnInit {
         if (this.text.trim() && this.title.trim()) {
             const post: IPost = {
                 title: this.title,
-                text: this.text
+                text: this.text,
+                id: Math.ceil(Math.random() * 100000)
             }
             this.onAdd.emit(post)
             this.text = this.title = ""
+            this.id = 0
         }
     }
 
