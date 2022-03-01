@@ -1,6 +1,9 @@
 <div class="container">
-    <h1>Creating post</h1>
-    <app-post-form></app-post-form>
-    <hr>
-    <app-post></app-post>
+  <h1>Creating post</h1>
+  <app-post-form></app-post-form>
+  <hr>
+  <app-post
+    *ngFor="let p of posts"
+    [post] = "p"
+  ></app-post>
 </div>
