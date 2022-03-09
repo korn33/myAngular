@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { PostFormComponent } from './post-form/post-form.component';
 import { PostComponent } from './post/post.component';
 import {FormsModule} from "@angular/forms";
+import { StyleDirective } from './directives/style.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostFormComponent,
-    PostComponent
+    PostComponent,
+    StyleDirective
   ],
   imports: [
     BrowserModule,
