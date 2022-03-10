@@ -1,11 +1,11 @@
-import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
+import {Directive, ElementRef, HostBinding, HostListener, Input, Renderer2} from '@angular/core';
 
 @Directive({
     selector: '[appStyleDirective]'
 })
 export class StyleDirective {
     @Input() dStyles!: {color?: string, border?: string, borderRadius?: string}
-
+    @HostBinding('style.color') elColor: string | undefined | null
     constructor(private elRef: ElementRef, private renderer: Renderer2) {
 
     }
@@ -15,14 +15,16 @@ export class StyleDirective {
     }
 
     @HostListener('mouseenter') onMouseEnter() {
-        this.renderer.setStyle(this.elRef.nativeElement, 'color', this.dStyles.color)
-        this.renderer.setStyle(this.elRef.nativeElement, 'border', this.dStyles.border)
-        this.renderer.setStyle(this.elRef.nativeElement, 'borderRadius', this.dStyles.borderRadius)
+        this.elColor = this.dStyles.color;
+        // this.renderer.setStyle(this.elRef.nativeElement, 'color', this.dStyles.color)
+        // this.renderer.setStyle(this.elRef.nativeElement, 'border', this.dStyles.border)
+        // this.renderer.setStyle(this.elRef.nativeElement, 'borderRadius', this.dStyles.borderRadius)
     }
 
     @HostListener('mouseleave') onMouseLeave() {
-        this.renderer.setStyle(this.elRef.nativeElement, 'color',null)
-        this.renderer.setStyle(this.elRef.nativeElement, 'border', null)
-        this.renderer.setStyle(this.elRef.nativeElement, 'borderRadius', null)
+        this.elColor = null
+        // this.renderer.setStyle(this.elRef.nativeElement, 'color',null)
+        // this.renderer.setStyle(this.elRef.nativeElement, 'border', null)
+        // this.renderer.setStyle(this.elRef.nativeElement, 'borderRadius', null)
     }
 }
