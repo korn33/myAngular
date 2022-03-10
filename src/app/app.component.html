@@ -22,4 +22,10 @@
     <p appStyleDirective
         [dStyles] = "{color: 'red', border: '1px solid green', borderRadius: '5px'}"
     >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, quibusdam!</p>
+
+    <button class="btn" (click)="isVisible = !isVisible">Toggle</button>
+
+    <div *appIfNot="!isVisible">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aut iusto labore odio sed soluta.</p>
+    </div>
 </div>

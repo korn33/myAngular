@@ -8,7 +8,7 @@ import {IPost} from 'src/interfaces/formPosts/IPost';
 })
 export class AppComponent {
     posts: IPost[] = [];
-
+    isVisible!: boolean;
     updatePosts($event: IPost) {
         this.posts.unshift($event)
     }
