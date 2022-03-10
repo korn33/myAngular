@@ -15,5 +15,11 @@
         </ng-template>
     </app-post>
 
-    <p appStyleDirective>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, quibusdam!</p>
+    <p appStyleDirective
+        [dStyles] = "{color: 'green', border: '1px solid red', borderRadius: '5px'}"
+    >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, quibusdam!</p>
+
+    <p appStyleDirective
+        [dStyles] = "{color: 'red', border: '1px solid green', borderRadius: '5px'}"
+    >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, quibusdam!</p>
 </div>
