@@ -9,6 +9,10 @@ export class StyleDirective {
 
     }
 
+    @HostListener('click', ['$event.target']) onClick(event: Event) {
+        console.log(event)
+    }
+
     @HostListener('mouseenter') onMouseEnter() {
         this.renderer.setStyle(this.elRef.nativeElement, 'color', 'blue')
     }
