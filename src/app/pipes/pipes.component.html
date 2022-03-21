@@ -1,0 +1,12 @@
+<h1>Pipes block</h1>
+
+<button class="btn">Title</button>
+<button class="btn">Text</button>
+
+<input type="text" [(ngModel)] = "search">
+
+<div class="card"
+    *ngfor="let post of posts">
+    <h2>{{post.title}}</h2>
+    <p>{{post.text}}</p>
+</div>
