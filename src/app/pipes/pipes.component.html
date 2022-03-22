@@ -1,12 +1,12 @@
 <h1>Pipes block</h1>
 
-<button class="btn">Title</button>
-<button class="btn">Text</button>
+<button class="btn" (click)="searchField = 'title'">Title</button>
+<button class="btn" (click)="searchField = 'text'">Text</button>
 
 <input type="text" [(ngModel)] = "search">
 
 <div class="card"
-    *ngfor="let post of posts">
+    *ngFor="let post of posts | filter: search:searchField">
     <h2>{{post.title}}</h2>
     <p>{{post.text}}</p>
 </div>

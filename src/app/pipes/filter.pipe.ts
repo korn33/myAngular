@@ -6,12 +6,12 @@ import {IPipePost} from "../../interfaces/pipes/IPipePost.js";
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(posts: IPipePost[], search: string = ''): IPipePost[] {
+  transform(posts: IPipePost[], search: string = '', field: string = 'title'): IPipePost[] {
     if (!search.trim()){
       return posts
     }
 
-    return posts.filter(post => post.title.includes(search))
+    return posts.filter(post => post[field].toLowerCase().includes(search.toLowerCase()))
   }
 
 }

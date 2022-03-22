@@ -7,7 +7,8 @@ import {IPipePost} from "../../interfaces/pipes/IPipePost.js";
   styleUrls: ['./pipes.component.scss']
 })
 export class PipesComponent implements OnInit {
-  public search : string = 'title';
+  public search : string = '';
+  public searchField : string = 'title';
   public posts: IPipePost[] = [
     {title: 'Bear', text: 'The best bear in the wold!'},
     {title: 'Bread', text: 'The best bread in the wold!'},
