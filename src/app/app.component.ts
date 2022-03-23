@@ -1,20 +1,19 @@
-import {Component} from '@angular/core';
-import {IPost} from 'src/interfaces/formPosts/IPost';
+import {Component, OnInit} from '@angular/core'
+import {FormGroup} from "@angular/forms";
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-    posts: IPost[] = [];
-    isVisible!: boolean;
-    updatePosts($event: IPost) {
-        this.posts.unshift($event)
+export class AppComponent implements OnInit {
+    form!: FormGroup
+
+    ngOnInit(): void {
+        this.form = new FormGroup({})
     }
 
-    removePost(id: number){
-        console.log("id: ", id)
-        this.posts = this.posts.filter(value => value.id != id)
+    submit() {
+        console.log('yo! form: ', this.form)
     }
 }

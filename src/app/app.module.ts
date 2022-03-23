@@ -1,30 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser'
+import {NgModule} from '@angular/core'
 
-import { AppComponent } from './app.component';
-import { PostFormComponent } from './post-form/post-form.component';
-import { PostComponent } from './post/post.component';
-import {FormsModule} from "@angular/forms";
-import { StyleDirective } from './directives/style.directive';
-import { IfNotDirective } from './directives/if-not.directive';
-import { PipesComponent } from './pipes/pipes.component';
-import { FilterPipe } from './pipes/filter.pipe';
+import {AppComponent} from './app.component'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PostFormComponent,
-    PostComponent,
-    StyleDirective,
-    IfNotDirective,
-    PipesComponent,
-    FilterPipe
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
