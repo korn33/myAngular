@@ -11,6 +11,7 @@
       <div class="validation" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
         <small *ngIf="form.get('email')?.errors?.['required']">Поле не может быть пустым</small>
         <small *ngIf="form.get('email')?.errors?.['email']">Введите корректный имейл</small>
+        <small *ngIf="form.get('email')?.errors?.['restricted']">Email {{form.get('email')?.value}} запрещен</small>
       </div>
     </div>
 
