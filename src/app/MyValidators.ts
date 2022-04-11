@@ -1,4 +1,4 @@
-import {FormControl} from "@angular/forms";
+import {AbstractControl, FormControl} from "@angular/forms";
 
 export class MyValidators {
     static restrictedEmail(control: FormControl): {[key: string]: boolean} | null {
@@ -6,5 +6,19 @@ export class MyValidators {
             return {restricted: true}
         }
         return null;
+    }
+
+    static uniqEmail(control: AbstractControl): Promise<{[key: string]: boolean}> | Promise<null> {
+        return new Promise<any>(resolve => {
+            setTimeout(() => {
+                if (control.value === 'test@ya.ru'){
+                    resolve({
+                        uniqEmail: true
+                    })
+                } else {
+                    resolve(null)
+                }
+            }, 5000)
+        })
     }
 }
