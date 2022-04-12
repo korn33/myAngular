@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
         if (this.form.valid) {
             // console.log('yo! form: ', this.form);
             console.log('controls: ', this.form.value);
+            this.form.reset();
         }
     }
 
