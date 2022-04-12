@@ -8,6 +8,8 @@ import {MyValidators} from "./MyValidators";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+    appState = 'off';
+
     form!: FormGroup;
 
     ngOnInit(): void {
@@ -53,5 +55,9 @@ export class AppComponent implements OnInit {
 
     getControls() {
         return (this.form.get('skills') as FormArray).controls
+    }
+
+    handleChange() {
+        console.log(this.appState)
     }
 }

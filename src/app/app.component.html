@@ -66,5 +66,10 @@
   </form>
 </div>
 
-
-
+<hr>
+<div class="container">
+    <h1>Angular NgModel</h1>
+    <app-switcher [(ngModel)]="appState" (ngModelChange)="handleChange()"></app-switcher>
+    <hr>
+    <p>appState: {{appState}}</p>
+</div>
