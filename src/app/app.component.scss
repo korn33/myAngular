@@ -2,11 +2,13 @@ p {
   font-size: 1.5rem;
 }
 
+
 input {
-  &.ng-invalid.ng-touched{
-    border: solid 1px red;
+  &.ng-invalid.ng-touched {
+    border: 1px solid red;
   }
-  &.ng-valid{
-    border: solid 1px green;
+
+  &.ng-valid.ng-touched {
+    border: 1px solid green;
   }
 }
