@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
     todoTitle: string = '';
     isLoading: boolean = false;
 
+    errorMessage: string = '';
+
     ngOnInit() {
        this.onLoad()
     }
@@ -51,6 +53,8 @@ export class AppComponent implements OnInit {
         this.todosService.Complete(id).subscribe(todo => {
             const completingTodo = this.todos.find(value => value.id === todo.id);
             if (completingTodo) completingTodo.completed = todo.completed
+        }, error => {
+            this.errorMessage = error.message
         })
     }
 }

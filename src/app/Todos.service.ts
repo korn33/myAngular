@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {catchError, Observable, throwError} from "rxjs";
 import {delay} from "rxjs/operators";
 
 export interface ITodo {
@@ -19,7 +19,13 @@ export class TodosService{
 
     Load():Observable<ITodo[]> {
         return this.http.get<ITodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
-            .pipe(delay(1000))
+            .pipe(
+                delay(1000),
+                catchError(err => {
+                    console.log('Error: ', err.message)
+                    return throwError(err)
+                })
+            )
     }
 
     Delete(id: number): Observable<void> {
@@ -30,5 +36,11 @@ export class TodosService{
         return this.http.put<ITodo>(`https://jsonplaceholder.typicode.com/todos/${id}`, {
             completed: true
         })
+            .pipe(
+                catchError(err => {
+                    console.log('Error: ', err.message)
+                    return throwError(err)
+                })
+            )
     }
 }
