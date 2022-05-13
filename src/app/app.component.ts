@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core'
 import {HttpClient} from "@angular/common/http";
+import { delay } from 'rxjs/operators';
 
 export interface ITodo {
     id: number,
@@ -21,12 +22,10 @@ export class AppComponent implements OnInit {
 
     todos: ITodo[] = [];
     todoTitle: string = '';
+    isLoading: boolean = false;
 
     ngOnInit() {
-        this.http.get<ITodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2').subscribe(todos => {
-            console.log('params: ', todos);
-            this.todos = todos;
-        })
+       this.onLoad()
     }
 
     onAdd() {
@@ -38,6 +37,17 @@ export class AppComponent implements OnInit {
         };
         this.http.post<ITodo>('https://jsonplaceholder.typicode.com/todos', newTodo).subscribe(todo => {
             this.todos.push(todo)
+        })
+    }
+
+    onLoad() {
+        this.isLoading = true;
+        this.http.get<ITodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
+            .pipe(delay(1500))
+            .subscribe(todos => {
+            console.log('params: ', todos);
+            this.todos = todos;
+            this.isLoading = false;
         })
     }
 }
