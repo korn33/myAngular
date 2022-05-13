@@ -50,5 +50,11 @@ export class AppComponent implements OnInit {
             this.isLoading = false;
         })
     }
+
+    onDelete(id: number) {
+        this.http.delete<void>(`https://jsonplaceholder.typicode.com/todos/${id}`).subscribe(() => {
+            this.todos = this.todos.filter(value => value.id !== id)
+        })
+    }
 }
 

@@ -1,30 +1,36 @@
 <div class="container">
-  <h1>Angular HttpClient</h1>
+    <h1>Angular HttpClient</h1>
 
-  <div class="card">
-    <div class="form-control">
-      <input type="text" placeholder="Название" [(ngModel)]="todoTitle">
+    <div class="card">
+        <div class="form-control">
+            <input type="text" placeholder="Название" [(ngModel)]="todoTitle">
+        </div>
+        <button class="btn" (click)="onAdd()">Добавить</button>
+        <button class="btn" (click)="onLoad()">Загрузить</button>
     </div>
-    <button class="btn" (click)="onAdd()">Добавить</button>
-    <button class="btn" (click)="onLoad()">Загрузить</button>
-  </div>
 
-  <hr>
+    <hr>
 
     <div *ngIf="!isLoading; else LoadingTemplate">
-        <div class="card" *ngFor="let todo of todos">
-            <p>
-                <span [class.completed] = "todo.completed">{{todo.title | titlecase}}</span>
-                <span>
-        <button class="btn btn-danger">Удалить</button>
-        <button class="btn" [disabled]="todo.completed">Завершить</button>
-      </span>
-            </p>
+        <div *ngIf="todos.length; else NoTodosTemplate">
+            <div class="card" *ngFor="let todo of todos">
+                <p>
+                    <span [class.completed]="todo.completed">{{todo.title | titlecase}}</span>
+                    <span>
+                        <button class="btn btn-danger" (click)="onDelete(todo.id)">Удалить</button>
+                        <button class="btn" [disabled]="todo.completed">Завершить</button>
+                    </span>
+                </p>
+            </div>
         </div>
     </div>
 
     <ng-template #LoadingTemplate>
         <p>Loading...</p>
+    </ng-template>
+
+    <ng-template #NoTodosTemplate>
+        <p>Nothing todos...</p>
     </ng-template>
 </div>
 
