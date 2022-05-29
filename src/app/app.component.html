@@ -1,42 +1,23 @@
+<nav class="navbar">
+  <h1>
+    <a href="#">Angular Routing</a>
+  </h1>
+  <ul>
+    <li class="active">
+      <a href="#">Home</a>
+    </li>
+    <li><a href="#">Posts</a></li>
+    <li><a href="#">About</a></li>
+    <li><button class="btn">Login</button></li>
+    <li><button class="btn">Logout</button></li>
+  </ul>
+</nav>
+
 <div class="container">
-    <h1>Angular HttpClient</h1>
-
-    <div class="card">
-        <div class="form-control">
-            <input type="text" placeholder="Название" [(ngModel)]="todoTitle">
-        </div>
-        <button class="btn" (click)="onAdd()">Добавить</button>
-        <button class="btn" (click)="onLoad()">Загрузить</button>
-    </div>
-
-    <hr>
-
-    <p class="error" *ngIf="errorMessage; else TodosBlockTemplate">{{errorMessage}}</p>
-
-    <ng-template #TodosBlockTemplate>
-        <div *ngIf="!isLoading; else LoadingTemplate">
-            <div *ngIf="todos.length; else NoTodosTemplate">
-                <div class="card" *ngFor="let todo of todos">
-                    <p>
-                        <span [class.completed]="todo.completed">{{todo.title | titlecase}}</span>
-                        <span>
-                        <button class="btn btn-danger" (click)="onDelete(todo.id)">Удалить</button>
-                        <button class="btn" [disabled]="todo.completed" (click)="onComplete(todo.id)">Завершить</button>
-                    </span>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <ng-template #LoadingTemplate>
-            <p>Loading...</p>
-        </ng-template>
-
-        <ng-template #NoTodosTemplate>
-            <p>Nothing todos...</p>
-        </ng-template>
-    </ng-template>
-
+  <div class="card">
+    <app-home></app-home>
+    <!--<app-about></app-about>-->
+  </div>
 </div>
 
 
