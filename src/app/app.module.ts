@@ -8,22 +8,24 @@ import {HomeComponent} from './home/home.component'
 import {PostsComponent} from './posts/posts.component'
 import {PostComponent} from './post/post.component'
 import {AboutExtraComponent} from './about-extra/about-extra.component'
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AboutComponent,
-    HomeComponent,
-    PostsComponent,
-    PostComponent,
-    AboutExtraComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AboutComponent,
+        HomeComponent,
+        PostsComponent,
+        PostComponent,
+        AboutExtraComponent,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
